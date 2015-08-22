@@ -1,2 +1,2 @@
-# react-demos
+# React Demos
 Some ReactJS demos
