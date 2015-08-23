@@ -20452,7 +20452,8 @@
 	        return {
 	            board  : board,
 	            turn   : TILE_X,
-	            winner : false
+	            winner : false,
+	            draw   : false
 	        };
 	    },
 
@@ -20488,13 +20489,15 @@
 	    getStatus: function() {
 	        return (
 	            React.createElement("div", {className: "Status"}, 
-	                this.state.winner ? this.state.winner + ' Wins' : this.state.turn + ' Turn', 
+	                this.state.winner ?
+	                    this.state.winner + ' Wins' :
+	                    (this.state.draw ? 'Draw' : this.state.turn + ' Turn'), 
 	            this.getPlayAgain())
 	        );
 	    },
 
 	    getPlayAgain: function() {
-	        if(this.state.winner) {
+	        if(this.state.winner || this.state.draw) {
 	            return (
 	                React.createElement("span", {
 	                    className: "PlayAgain", 
@@ -20506,8 +20509,9 @@
 	    },
 
 	    checkWinner: function(turn, x, y) {
-	        var isWinner = false,
-	            i;
+	        var isWinner    = false,
+	            piecesCount = 0,
+	            i, j;
 
 	        for(i = 0; i < 3; i += 1) {
 	            if(this.state.board[x][i] != turn) {
@@ -20555,6 +20559,20 @@
 	            this.setState({
 	                winner: turn
 	            });
+	        } else {
+	            for(i = 0; i < 3; i += 1) {
+	                for(j = 0; j < 3; j += 1) {
+	                    if(this.state.board[i][j] !== TILE_CLEAR) {
+	                        piecesCount += 1;
+	                    }
+	                }
+	            }
+
+	            if(piecesCount === 9) {
+	                this.setState({
+	                    draw: true
+	                });
+	            }
 	        }
 	    },
 

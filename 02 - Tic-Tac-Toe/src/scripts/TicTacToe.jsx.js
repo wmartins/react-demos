@@ -20,7 +20,8 @@ module.exports = React.createClass({
         return {
             board  : board,
             turn   : TILE_X,
-            winner : false
+            winner : false,
+            draw   : false
         };
     },
 
@@ -56,13 +57,15 @@ module.exports = React.createClass({
     getStatus: function() {
         return (
             <div className="Status">{
-                this.state.winner ? this.state.winner + ' Wins' : this.state.turn + ' Turn'
+                this.state.winner ?
+                    this.state.winner + ' Wins' :
+                    (this.state.draw ? 'Draw' : this.state.turn + ' Turn')
             }{this.getPlayAgain()}</div>
         );
     },
 
     getPlayAgain: function() {
-        if(this.state.winner) {
+        if(this.state.winner || this.state.draw) {
             return (
                 <span
                     className="PlayAgain"
@@ -74,8 +77,9 @@ module.exports = React.createClass({
     },
 
     checkWinner: function(turn, x, y) {
-        var isWinner = false,
-            i;
+        var isWinner    = false,
+            piecesCount = 0,
+            i, j;
 
         for(i = 0; i < 3; i += 1) {
             if(this.state.board[x][i] != turn) {
@@ -123,6 +127,20 @@ module.exports = React.createClass({
             this.setState({
                 winner: turn
             });
+        } else {
+            for(i = 0; i < 3; i += 1) {
+                for(j = 0; j < 3; j += 1) {
+                    if(this.state.board[i][j] !== TILE_CLEAR) {
+                        piecesCount += 1;
+                    }
+                }
+            }
+
+            if(piecesCount === 9) {
+                this.setState({
+                    draw: true
+                });
+            }
         }
     },
 
