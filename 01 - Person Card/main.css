@@ -1,0 +1,27 @@
+body {
+    font-family: SF UI Text, Roboto, Helvetica Neue, Helvetica, sans-serif;
+
+    background-color: #111;
+}
+
+.App {
+    text-align: center;
+}
+
+.PersonCard {
+    display: inline-block;
+    max-width: 100%;
+    min-width: 300px;
+    padding: 40px 20px;
+    margin: 10px;
+
+    text-align: center;
+
+    background-color: #39CCCC;
+    color: #111;
+    border-radius: 5px;
+}
+
+.PersonCard-Pic {
+    border-radius: 50%;
+}
