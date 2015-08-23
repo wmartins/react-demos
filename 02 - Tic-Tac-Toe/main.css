@@ -1,0 +1,47 @@
+body {
+    background-color: #111;
+
+    font-family: SF UI Text, Roboto, Helvetica Neue, Helvetica, sans-serif;
+}
+
+table {
+    margin: 50px auto 0 auto;
+
+    border-collapse: collapse;
+
+    font-family: monospace;
+}
+
+td {
+    padding: 10px 30px;
+
+    font-size: 60px;
+    color: #aaa;
+
+    border-bottom: 5px solid #39CCCC;
+    border-right: 5px solid #39CCCC;
+
+    cursor: pointer;
+}
+
+tr td:last-of-type {
+    border-right: 0;
+}
+
+tr:last-of-type td {
+    border-bottom: 0;
+}
+
+.Status {
+    color: #39CCCC;
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
+.PlayAgain {
+    margin-left: 5px;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
