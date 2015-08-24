@@ -1,2 +1,2 @@
 # React Demos
-Some ReactJS demos
+Dummy reactjs samples for presentation purposes
