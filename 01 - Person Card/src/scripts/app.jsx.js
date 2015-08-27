@@ -15,3 +15,12 @@ React.render(
     </div>,
     appDOMNode
 );
+
+/*
+    For demo purposes:
+
+        <PersonCard
+            pic="http://graph.facebook.com/100003177708763/picture?type=normal"
+            name="Nicolas Peixoto"
+            bio="Lorem ipsum" />
+*/

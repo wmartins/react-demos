@@ -47,9 +47,15 @@
 	var React      = __webpack_require__(1),
 	    appDOMNode = document.querySelector('#js-react-app');
 
+	var TechTalks = React.createClass({displayName: "TechTalks",
+	    render: function() {
+	        return React.createElement("div", {className: "Batata"}, "Olá TechTalks");
+	    }
+	});
+
 	React.render(
 	    React.createElement("div", {className: "App"}, 
-	        "Init"
+	        React.createElement(TechTalks, null)
 	    ),
 	    appDOMNode
 	);
