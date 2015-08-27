@@ -49,7 +49,7 @@
 
 	var TechTalks = React.createClass({displayName: "TechTalks",
 	    render: function() {
-	        return React.createElement("div", {className: "Batata"}, "Olá TechTalks");
+	        return React.createElement("div", null, "Olá Pessoal");
 	    }
 	});
 
